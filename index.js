@@ -10,12 +10,20 @@ function trataErro(erro) {
 
 function pegaArquivo(caminhoDoArquivo) {
     const encoding = 'utf-8';
-    fs.readFile(caminhoDoArquivo, encoding, (erro, texto) => {
-        if(erro) {
-            trataErro(erro);
-        }
-        console.log(chalk.green(texto));
-    })
+    fs.promises
+        .readFile(caminhoDoArquivo, encoding)
+        .then((texto) => console.log(chalk.green(texto)))
+        .catch(trataErro);
 }
 
-pegaArquivo('./arquivos/.md');
+// function pegaArquivo(caminhoDoArquivo) {
+//     const encoding = 'utf-8';
+//     fs.readFile(caminhoDoArquivo, encoding, (erro, texto) => {
+//         if(erro) {
+//             trataErro(erro);
+//         }
+//         console.log(chalk.green(texto));
+//     })
+// }
+
+pegaArquivo('./arquivos/texto.md');
