@@ -9,12 +9,10 @@ function extraiLinks(texto) {
 }
 
 function trataErro(erro) {
-    // error é um objeto do js, tem as propriedades errno, code, syscal e path
     console.log(erro);
     throw new Error(chalk.red(erro.code, 'não há arquivo no diretório'));
 }
 
-// função assíncrona com async/await
 async function pegaArquivo(caminhoDoArquivo) {
     try {
         const encoding = 'utf-8';
@@ -25,4 +23,4 @@ async function pegaArquivo(caminhoDoArquivo) {
     }
 }
 
-pegaArquivo('./arquivos/texto.md');
+export default pegaArquivo;
