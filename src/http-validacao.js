@@ -1,5 +1,9 @@
+function extraiLinks(arrLinks) {
+    return arrLinks.map((objetoLink) => Object.values(objetoLink).join());
+}
+
 function listaValidada(listaDeLinks) {
-    return 'entrou na função';
+    return extraiLinks(listaDeLinks);
 }
 
 export default listaValidada;
